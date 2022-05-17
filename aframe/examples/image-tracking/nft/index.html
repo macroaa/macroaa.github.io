@@ -25,7 +25,15 @@
 <!--<script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>-->
 <script src='../../../../aframe/build/aframe-ar-nft.js'></script>
 
-
+<script>
+	AFRAME.registerComponent('foo',{
+		init: fuction () {
+			this.el.sceneEl.addEventListener('foo',()=>{
+				alert('Hello')
+			});
+		}
+	});
+</script>
 <body style='margin : 0px; overflow: hidden;'>
    <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
@@ -38,7 +46,6 @@
 
         <!-- use rawgithack to retrieve the correct url for nft marker (see 'pinball' below) -->
         
-        </a-nft>
 	    <a-nft
             type='nft' url='./aframe/examples/image-tracking/nft/trex-image-door/trex-image/sssssssss'
             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
@@ -48,6 +55,11 @@
                 position="150 300 -100"
                 >
             </a-entity>
+        </a-nft>
+	    <a-nft
+            foo type='nft' url='./aframe/examples/image-tracking/nft/trex-image-door/trex-image/sssssssss'
+            smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+            
         </a-nft>
 		<a-entity camera></a-entity>
     </a-scene>
